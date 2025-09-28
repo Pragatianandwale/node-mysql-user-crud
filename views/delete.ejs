@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Delete Users</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 70%;
+      margin-top: 20px;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 8px;
+      text-align: center;
+    }
+    button {
+      padding: 5px 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Delete Users</h1>
+  <p>Select a user to delete. This action cannot be undone.</p>
+
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <th>Username</th>
+      <th>Action</th>
+    </tr>
+
+    <% for (let user of users) { %>
+      <tr>
+        <td><%= user.id %></td>
+        <td><%= user.email %></td>
+        <td><%= user.username %></td>
+        <td>
+          <form method="POST" action="/user/<%= user.id %>?_method=DELETE" 
+                onsubmit="return confirm('Are you sure you want to delete <%= user.email %>?');">
+            <button type="submit" style="color: red;">Delete</button>
+          </form>
+        </td>
+      </tr>
+    <% } %>
+  </table>
+
+  <br>
+  <a href="/user"><button>Back to Users</button></a>
+</body>
+</html>

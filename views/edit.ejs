@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit User</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fff0f5; text-align: center; padding: 50px; }
+        input, textarea { padding: 10px; margin: 10px; width: 250px; border-radius: 5px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; border-radius: 5px; border: none; cursor: pointer; margin: 5px; }
+        .edit-btn { background-color: #ff7f50; color: white; }
+        .edit-btn:hover { background-color: #ff4500; }
+        .delete-btn { background-color: #ff4c4c; color: white; }
+        .delete-btn:hover { background-color: #ff0000; }
+    </style>
+</head>
+<body>
+    <h1>Edit User: <%= user.username %></h1>
+    <form method="post" action="/user/<%= user.id %>?_method=PATCH">
+        <input type="text" name="username" value="<%= user.username %>" required><br>
+        <input type="email" name="email" value="<%= user.email %>" required><br>
+        <input type="password" name="password" placeholder="Enter current password to save" required><br>
+        <button class="edit-btn">Save Changes</button>
+    </form>
+    <form method="POST" action="/user/<%= user.id %>?_method=DELETE" onsubmit="return confirm('Are you sure?');">
+        <button type="submit" class="delete-btn">Delete User</button>
+    </form>
+    <br>
+    <button onclick="window.location.href='/user'">Back to Users</button>
+</body>
+</html>

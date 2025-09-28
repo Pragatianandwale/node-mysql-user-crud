@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #ffe5d9; text-align: center; padding: 50px;}
+        h1 { color: #ff4500; }
+        button {
+            background-color: #ff6347; color: white; border: none; padding: 10px 20px;
+            border-radius: 5px; cursor: pointer; font-size: 16px;
+        }
+        button:hover { background-color: #ff4500; }
+    </style>
+</head>
+<body>
+    <h1>Total Users: <%= count %></h1>
+    <button onclick="window.location.href='/user'">View All Users</button>
+    <button onclick="window.location.href='/user/add'">Add New User</button>
+</body>
+</html>

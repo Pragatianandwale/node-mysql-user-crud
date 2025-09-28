@@ -1,0 +1,10 @@
+CREATE DATABASE IF NOT EXISTS sql1;
+
+USE sql1;
+
+CREATE TABLE IF NOT EXISTS user (
+    id VARCHAR(36) PRIMARY KEY,
+    username VARCHAR(100),
+    email VARCHAR(100) UNIQUE,
+    password VARCHAR(255)
+);

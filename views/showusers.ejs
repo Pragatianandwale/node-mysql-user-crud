@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Users</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #fff0f5; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: center; }
+        th { background-color: #ffb6c1; }
+        tr:nth-child(even) { background-color: #ffe4e1; }
+        button {
+            padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer;
+            background-color: #ff7f50; color: white;
+        }
+        button:hover { background-color: #ff4500; }
+        .container { max-height: 500px; overflow-y: scroll; }
+    </style>
+</head>
+<body>
+    <h1>All Users</h1>
+    <button onclick="window.location.href='/'">Home</button>
+    <div class="container">
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Edit</th>
+            </tr>
+            <% for(user of users){ %>
+            <tr>
+                <td><%= user.id %></td>
+                <td><%= user.username %></td>
+                <td><%= user.email %></td>
+                <td>
+                    <form method="GET" action="/user/<%= user.id %>/edit">
+                        <button>Edit</button>
+                    </form>
+                </td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+</body>
+</html>
